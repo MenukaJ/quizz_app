@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app_ii_example/page/home_page.dart';
 
 import '../admin_pages/add_category.dart';
+import '../admin_pages/add_quiz.dart';
 
 class MainDrawer extends StatelessWidget {
   final username;
@@ -52,9 +53,9 @@ class MainDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.qr_code),
+            leading: Icon(Icons.category_rounded),
             title: Text(
-              'Category',
+              'Categories',
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey,
@@ -65,21 +66,31 @@ class MainDrawer extends StatelessWidget {
                 new MaterialPageRoute(builder: (context) => new AddCategory())),
           ),
           ListTile(
-              leading: Icon(Icons.airplane_ticket),
+              leading: Icon(Icons.quiz_rounded),
               title: Text(
-                'Question',
+                'Quizzes',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.grey,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              onTap: () => {}
-              /*Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => new Ticket())),*/
-              ),
+              onTap: () => Navigator.of(context).push(
+                  new MaterialPageRoute(builder: (context) => new AddQuiz()))
+          ),
           ListTile(
-              leading: Icon(Icons.airplane_ticket),
+              leading: Icon(Icons.question_answer_rounded),
+              title: Text(
+                'Questions',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              onTap: () => {}),
+          ListTile(
+              leading: Icon(Icons.notes_rounded),
               title: Text(
                 'Options',
                 style: TextStyle(
@@ -88,24 +99,7 @@ class MainDrawer extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              onTap: () => {}
-              /*Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => new Ticket())),*/
-              ),
-          ListTile(
-              leading: Icon(Icons.airplane_ticket),
-              title: Text(
-                'Quizz',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              onTap: () => {}
-              /*Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => new Ticket())),*/
-              ),
+              onTap: () => {}),
           Divider(),
           ListTile(
             leading: Icon(Icons.logout),
