@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app_ii_example/page/home_page.dart';
-import 'package:quiz_app_ii_example/views/notes_list.dart';
+import 'package:quiz_app_ii_example/notes/notes_list.dart';
 
 import '../admin_pages/add_category.dart';
 import '../admin_pages/add_quiz.dart';
@@ -67,19 +67,6 @@ class MainDrawer extends StatelessWidget {
                 new MaterialPageRoute(builder: (context) => new AddCategory())),
           ),
           ListTile(
-            leading: Icon(Icons.category_rounded),
-            title: Text(
-              'Categories 2',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            onTap: () => Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => new NoteList())),
-          ),
-          ListTile(
               leading: Icon(Icons.quiz_rounded),
               title: Text(
                 'Quizzes',
@@ -114,6 +101,19 @@ class MainDrawer extends StatelessWidget {
                 ),
               ),
               onTap: () => {}),
+          ListTile(
+            leading: Icon(Icons.category_rounded),
+            title: Text(
+              'Notes',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.grey,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            onTap: () => Navigator.of(context).push(
+                new MaterialPageRoute(builder: (context) => new NoteList())),
+          ),
           Divider(),
           ListTile(
             leading: Icon(Icons.logout),
