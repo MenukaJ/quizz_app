@@ -5,10 +5,10 @@ import 'package:quiz_app/page/category_page.dart';
 
 import '../page/quizz.dart';
 
-class CategoryHeaderWidget extends StatelessWidget {
+class QuizzHeaderWidget extends StatelessWidget {
   final Category category;
 
-  const CategoryHeaderWidget({
+  const QuizzHeaderWidget({
     Key key,
     @required this.category,
   }) : super(key: key);
@@ -16,7 +16,7 @@ class CategoryHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => GestureDetector(
         onTap: () => Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => Quizz(),
+          builder: (context) => CategoryPage(category: category),
         )),
         child: Container(
           padding: EdgeInsets.all(12),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quiz_app/category/view_category.dart';
 import 'package:quiz_app/data/user.dart';
 import 'package:quiz_app/services/category_service.dart';
 import 'package:toggle_switch/toggle_switch.dart';
@@ -106,8 +107,7 @@ class _EditCategoryState extends State<EditCategory> {
                     new TextFormField(
                         keyboardType: TextInputType.text,
                         onSaved: (input) => requestModel.name = input,
-                        validator: (input) =>
-                            input.length < 1 ? "Name should be valid" : null,
+                        //validator: (input) =>input.length < 1 ? "Name should be valid" : null,
                         decoration: new InputDecoration(
                             hintText: categoryNew.name.toString(),
                             hintStyle: TextStyle(color: Colors.black),
@@ -131,9 +131,7 @@ class _EditCategoryState extends State<EditCategory> {
                     new TextFormField(
                         keyboardType: TextInputType.text,
                         onSaved: (input) => requestModel.description = input,
-                        validator: (input) => input.length < 1
-                            ? "Description should be valid"
-                            : null,
+                        //validator: (input) => input.length < 1 ? "Description should be valid" : null,
                         decoration: new InputDecoration(
                             hintText: categoryNew.description.toString(),
                             hintStyle: TextStyle(color: Colors.black),
@@ -261,7 +259,9 @@ class _EditCategoryState extends State<EditCategory> {
                             textColor: Colors.white,
                             fontSize: 16.0,
                           );
-                        });
+                        }).then((value) => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                    builder: (_) => CategoryList())));
                       },
                       child: Text(
                         "Save",
