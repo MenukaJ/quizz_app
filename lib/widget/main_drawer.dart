@@ -4,7 +4,7 @@ import 'package:quiz_app_ii_example/page/home_page.dart';
 import 'package:quiz_app_ii_example/notes/notes_list.dart';
 import 'package:quiz_app_ii_example/questions/question_list.dart';
 import 'package:quiz_app_ii_example/quiz/quiz_list.dart';
-import '../admin_pages/add_category.dart';
+import '../category/view_category.dart';
 
 class MainDrawer extends StatelessWidget {
   final username;
@@ -65,7 +65,7 @@ class MainDrawer extends StatelessWidget {
               ),
             ),
             onTap: () => Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => new AddCategory())),
+                new MaterialPageRoute(builder: (context) => new CategoryList())),
           ),
           ListTile(
               leading: Icon(Icons.quiz_rounded),
