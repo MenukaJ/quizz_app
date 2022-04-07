@@ -61,7 +61,17 @@ class _QuizModifyState extends State<QuizModify> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(isEditing ? 'Edit quiz' : 'Create quiz')),
+      appBar: AppBar(title: Text(isEditing ? 'Edit Quiz' : 'Create Quiz'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.deepOrange, Colors.purple],
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+            ),
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: _isLoading ? Center(child: CircularProgressIndicator()) : Column(

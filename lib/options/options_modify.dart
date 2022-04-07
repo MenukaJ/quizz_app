@@ -61,7 +61,17 @@ class _OptionsModifyState extends State<OptionsModify> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(isEditing ? 'Edit option' : 'Create option')),
+      appBar: AppBar(title: Text(isEditing ? 'Edit Option' : 'Create Option'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.deepOrange, Colors.purple],
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+            ),
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: _isLoading ? Center(child: CircularProgressIndicator()) : Column(

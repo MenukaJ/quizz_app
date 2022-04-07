@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:quiz_app/model/CategoryNew.dart';
-import 'package:quiz_app/page/category_page.dart';
 import 'package:quiz_app/page/home_page.dart';
 import 'package:get_it/get_it.dart';
-import 'package:quiz_app/services/notes_service.dart';
 import 'package:quiz_app/services/options_service.dart';
 import 'package:quiz_app/services/quiz_service.dart';
 import 'package:quiz_app/services/questions_service.dart';
 
 
 void setupLocator() {
-  GetIt.instance.registerLazySingleton(() => NotesService());
   GetIt.instance.registerLazySingleton(() => QuizService());
   GetIt.instance.registerLazySingleton(() => QuestionsService());
   GetIt.instance.registerLazySingleton(() => OptionsService());

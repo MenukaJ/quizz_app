@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/options/options_list.dart';
 import 'package:quiz_app/page/home_page.dart';
-import 'package:quiz_app/notes/notes_list.dart';
 import 'package:quiz_app/questions/question_list.dart';
 import 'package:quiz_app/quiz/quiz_list.dart';
 import '../category/view_category.dart';
@@ -106,20 +105,6 @@ class MainDrawer extends StatelessWidget {
               onTap: () => Navigator.of(context).push(
                   new MaterialPageRoute(builder: (context) => new OptionsList()))
           ),
-          ListTile(
-            leading: Icon(Icons.category_rounded),
-            title: Text(
-              'Notes',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            onTap: () => Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => new NoteList())),
-          ),
-          Divider(),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text(

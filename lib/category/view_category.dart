@@ -135,20 +135,6 @@ class _CategoryListState extends State<CategoryList> {
                                 categoryNew: _apiResponse[index])));
                       },
                     )),
-                /* child : ListTile(
-                  title: Text(
-                    _apiResponse[index].name,
-                    style: TextStyle(color: Theme.of(context).primaryColor),
-                  ),
-                  subtitle: Text('Deacription: ${_apiResponse[index].description}'),
-                  onTap: () {
-                    /* Navigator.of(context).push(MaterialPageRoute(
-                        builder: (_) => NoteModify(
-                            noteID: _apiResponse.data[index].noteID))).then((data) {
-                      _fetchNotes();
-                    });*/
-                  },
-                ),*/
               );
             },
             itemCount: _apiResponse.length,

@@ -4,12 +4,9 @@ import 'package:quiz_app/quiz/quiz_api_response.dart';
 import 'package:quiz_app/quiz/quiz_delete.dart';
 import 'package:quiz_app/quiz/quiz_for_listing.dart';
 import 'package:quiz_app/quiz/quiz_modify.dart';
-
 import '../services/quiz_service.dart';
 
-
 class QuizList extends StatefulWidget {
-
   @override
   _QuizListState createState() => _QuizListState();
 }
@@ -41,7 +38,18 @@ class _QuizListState extends State<QuizList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('List of quizzes')),
+      appBar: AppBar(
+        title: Text('List of Quizzes'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.deepOrange, Colors.purple],
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+            ),
+          ),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context)
@@ -61,19 +69,16 @@ class _QuizListState extends State<QuizList> {
             return Center(child: Text(_apiResponse.errorMessage));
           }
           return ListView.separated(
-            separatorBuilder: (_, __) => Divider(height: 1, color: Colors.green),
+            separatorBuilder: (_, __) =>
+                Divider(height: 1, color: Colors.green),
             itemBuilder: (_, index) {
               return Dismissible(
                 key: ValueKey(_apiResponse.data[index].quizID),
                 direction: DismissDirection.startToEnd,
-                onDismissed: (direction) {
-
-                },
+                onDismissed: (direction) {},
                 confirmDismiss: (direction) async {
                   final result = await showDialog(
-                      context: context,
-                      builder: (_) => QuizDelete()
-                  );
+                      context: context, builder: (_) => QuizDelete());
 
                   if (result) {
                     final deleteResult = await service.deleteQuiz(_apiResponse.data[index].quizID);
@@ -85,15 +90,18 @@ class _QuizListState extends State<QuizList> {
                     }
 
                     showDialog(
-                        context: context, builder: (_) => AlertDialog(
-                      title: Text('Done'),
-                      content: Text(message),
-                      actions: <Widget>[
-                        FlatButton(child: Text('ok'), onPressed: () {
-                          Navigator.of(context).pop();
-                        })
-                      ],
-                    ));
+                        context: context,
+                        builder: (_) => AlertDialog(
+                              title: Text('Done'),
+                              content: Text(message),
+                              actions: <Widget>[
+                                FlatButton(
+                                    child: Text('ok'),
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    })
+                              ],
+                            ));
 
                     return deleteResult?.data ?? false;
                   }
@@ -104,22 +112,29 @@ class _QuizListState extends State<QuizList> {
                 background: Container(
                   color: Colors.red,
                   padding: EdgeInsets.only(left: 16),
-                  child: Align(child: Icon(Icons.delete, color: Colors.white), alignment: Alignment.centerLeft,),
-                ),
-                child : ListTile(
-                  title: Text(
-                    _apiResponse.data[index].quizName,
-                    style: TextStyle(color: Theme.of(context).primaryColor),
+                  child: Align(
+                    child: Icon(Icons.delete, color: Colors.white),
+                    alignment: Alignment.centerLeft,
                   ),
-                  subtitle: Text('Subject : ${_apiResponse.data[index].categoryName}'),
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (_) => QuizModify(
-                            quizID: _apiResponse.data[index].quizID))).then((data) {
-                      _fetchQuizzes();
-                    });
-                  },
                 ),
+                child: Card(
+                    color: Colors.white,
+                    margin: EdgeInsets.all(9),
+                    child: ListTile(
+                      title: Text(
+                        _apiResponse.data[index].quizName,
+                        style: TextStyle(color: Theme.of(context).primaryColor),
+                      ),
+                      subtitle: Text('Subject : ${_apiResponse.data[index].categoryName}'),
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(
+                                builder: (_) => QuizModify(quizID: _apiResponse.data[index].quizID)))
+                            .then((data) {
+                          _fetchQuizzes();
+                        });
+                      },
+                    )),
               );
             },
             itemCount: _apiResponse.data.length,
