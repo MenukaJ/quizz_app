@@ -5,9 +5,16 @@ import 'package:quiz_app_ii_example/page/category_page.dart';
 import 'package:quiz_app_ii_example/page/home_page.dart';
 import 'package:get_it/get_it.dart';
 import 'package:quiz_app_ii_example/services/notes_service.dart';
+import 'package:quiz_app_ii_example/services/options_service.dart';
+import 'package:quiz_app_ii_example/services/quiz_service.dart';
+import 'package:quiz_app_ii_example/services/questions_service.dart';
+
 
 void setupLocator() {
   GetIt.instance.registerLazySingleton(() => NotesService());
+  GetIt.instance.registerLazySingleton(() => QuizService());
+  GetIt.instance.registerLazySingleton(() => QuestionsService());
+  GetIt.instance.registerLazySingleton(() => OptionsService());
 }
 
 Future main() async {

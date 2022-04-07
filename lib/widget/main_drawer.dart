@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app_ii_example/options/options_list.dart';
 import 'package:quiz_app_ii_example/page/home_page.dart';
 import 'package:quiz_app_ii_example/notes/notes_list.dart';
-
+import 'package:quiz_app_ii_example/questions/question_list.dart';
+import 'package:quiz_app_ii_example/quiz/quiz_list.dart';
 import '../admin_pages/add_category.dart';
-import '../admin_pages/add_quiz.dart';
 
 class MainDrawer extends StatelessWidget {
   final username;
@@ -77,7 +78,7 @@ class MainDrawer extends StatelessWidget {
                 ),
               ),
               onTap: () => Navigator.of(context).push(
-                  new MaterialPageRoute(builder: (context) => new AddQuiz()))
+                  new MaterialPageRoute(builder: (context) => new QuizList()))
           ),
           ListTile(
               leading: Icon(Icons.question_answer_rounded),
@@ -89,7 +90,9 @@ class MainDrawer extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              onTap: () => {}),
+              onTap: () => Navigator.of(context).push(
+                  new MaterialPageRoute(builder: (context) => new QuestionList()))
+          ),
           ListTile(
               leading: Icon(Icons.notes_rounded),
               title: Text(
@@ -100,7 +103,9 @@ class MainDrawer extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              onTap: () => {}),
+              onTap: () => Navigator.of(context).push(
+                  new MaterialPageRoute(builder: (context) => new OptionsList()))
+          ),
           ListTile(
             leading: Icon(Icons.category_rounded),
             title: Text(
