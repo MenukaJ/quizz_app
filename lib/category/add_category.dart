@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quiz_app/category/view_category.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 import '../data/user.dart';
@@ -250,7 +251,9 @@ class _AddCategoryState extends State<AddCategory> {
                             textColor: Colors.white,
                             fontSize: 16.0,
                           );
-                        });
+                        }).then((value) => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (_) => CategoryList())));
                       },
                       child: Text(
                         "Save",

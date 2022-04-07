@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
           leading: Icon(Icons.menu),
           backgroundColor: Colors.transparent,
           elevation: 0,
-          title: Text('Word Guess Quiz'),
+          title: Text('Word Guess Quiz Categories'),
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(80),
             child: Container(
@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 8),
             buildCategories(),
             SizedBox(height: 32),
-            buildPopular(context),
+            //buildPopular(context),
           ],
         ),
       );
@@ -70,7 +70,7 @@ class HomePage extends StatelessWidget {
       );
 
   Widget buildCategories() => Container(
-        height: 300,
+        height: 500,
         child: GridView(
           primary: false,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
         ),
       );
 
-  Widget buildPopular(BuildContext context) => Column(
+  /*Widget buildPopular(BuildContext context) => Column(
         children: [
           Container(
             alignment: Alignment.centerLeft,
@@ -114,5 +114,5 @@ class HomePage extends StatelessWidget {
             ),
           )
         ],
-      );
+      );*/
 }
