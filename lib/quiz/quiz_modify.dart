@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:quiz_app/quiz/quiz.dart';
 import 'package:quiz_app/quiz/quiz_insert.dart';
-
 import '../services/quiz_service.dart';
-
 
 class QuizModify extends StatefulWidget {
 
