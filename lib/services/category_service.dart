@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
-import 'package:quiz_app_ii_example/model/Responce.dart';
 import 'dart:convert';
 
 import '../model/CategoryNew.dart';
+import '../model/Responce.dart';
 
 class CategoryService {
   static const API = 'https://word-quiz-app-backend.herokuapp.com/category/';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:quiz_app_ii_example/notes/note_api_response.dart';
-import 'package:quiz_app_ii_example/notes/note_for_listing.dart';
-import 'package:quiz_app_ii_example/services/notes_service.dart';
+import 'package:quiz_app/notes/note_api_response.dart';
+import 'package:quiz_app/notes/note_for_listing.dart';
+import 'package:quiz_app/services/notes_service.dart';
 import 'note_delete.dart';
 import 'note_modify.dart';
 

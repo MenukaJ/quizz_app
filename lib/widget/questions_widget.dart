@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app_ii_example/model/category.dart';
-import 'package:quiz_app_ii_example/model/option.dart';
-import 'package:quiz_app_ii_example/model/question.dart';
-import 'package:quiz_app_ii_example/widget/options_widget.dart';
+import 'package:quiz_app/model/category.dart';
+import 'package:quiz_app/model/option.dart';
+import 'package:quiz_app/model/question.dart';
+import 'package:quiz_app/widget/options_widget.dart';
 
 class QuestionsWidget extends StatelessWidget {
   final Category category;

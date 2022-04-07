@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:quiz_app_ii_example/options/options.dart';
-import 'package:quiz_app_ii_example/options/options_insert.dart';
-import 'package:quiz_app_ii_example/services/options_service.dart';
+import 'package:quiz_app/options/options.dart';
+import 'package:quiz_app/options/options_insert.dart';
+import 'package:quiz_app/services/options_service.dart';
 
 class OptionsModify extends StatefulWidget {
 

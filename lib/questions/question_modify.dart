@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:quiz_app_ii_example/questions/questions.dart';
-import 'package:quiz_app_ii_example/questions/question_insert.dart';
-import 'package:quiz_app_ii_example/services/questions_service.dart';
+import 'package:quiz_app/questions/question_insert.dart';
+import 'package:quiz_app/questions/questions.dart';
+
+import '../services/questions_service.dart';
 
 class QuestionModify extends StatefulWidget {
 

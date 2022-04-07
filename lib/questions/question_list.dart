@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:quiz_app_ii_example/questions/question_api_response.dart';
-import 'package:quiz_app_ii_example/questions/question_delete.dart';
-import 'package:quiz_app_ii_example/questions/question_for_listing.dart';
-import 'package:quiz_app_ii_example/questions/question_modify.dart';
-import 'package:quiz_app_ii_example/services/questions_service.dart';
+import 'package:quiz_app/questions/question_api_response.dart';
+import 'package:quiz_app/questions/question_delete.dart';
+import 'package:quiz_app/questions/question_for_listing.dart';
+import 'package:quiz_app/questions/question_modify.dart';
+
+import '../services/questions_service.dart';
 
 class QuestionList extends StatefulWidget {
 

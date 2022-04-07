@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:quiz_app_ii_example/quiz/quiz.dart';
-import 'package:quiz_app_ii_example/quiz/quiz_api_response.dart';
-import 'package:quiz_app_ii_example/quiz/quiz_for_listing.dart';
-import 'package:quiz_app_ii_example/quiz/quiz_insert.dart';
+import 'package:quiz_app/quiz/quiz.dart';
+import 'package:quiz_app/quiz/quiz_api_response.dart';
+import 'package:quiz_app/quiz/quiz_for_listing.dart';
+import 'package:quiz_app/quiz/quiz_insert.dart';
 
 class QuizService {
   static const API = 'https://word-quiz-app-backend.herokuapp.com';

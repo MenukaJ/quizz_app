@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:quiz_app_ii_example/notes/note_api_response.dart';
-import 'package:quiz_app_ii_example/notes/note.dart';
-import 'package:quiz_app_ii_example/notes/note_for_listing.dart';
-import 'package:quiz_app_ii_example/notes/note_insert.dart';
+import 'package:quiz_app/notes/note_api_response.dart';
+import 'package:quiz_app/notes/note.dart';
+import 'package:quiz_app/notes/note_for_listing.dart';
+import 'package:quiz_app/notes/note_insert.dart';
 
 class NotesService {
   static const API = 'https://word-quiz-app-backend.herokuapp.com';

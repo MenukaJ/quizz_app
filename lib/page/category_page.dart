@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app_ii_example/model/category.dart';
-import 'package:quiz_app_ii_example/model/option.dart';
-import 'package:quiz_app_ii_example/model/question.dart';
-import 'package:quiz_app_ii_example/widget/question_numbers_widget.dart';
-import 'package:quiz_app_ii_example/widget/questions_widget.dart';
+
+import '../model/category.dart';
+import '../model/option.dart';
+import '../model/question.dart';
+import '../widget/question_numbers_widget.dart';
+import '../widget/questions_widget.dart';
 
 class CategoryPage extends StatefulWidget {
   final Category category;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:quiz_app_ii_example/options/options_delete.dart';
-import 'package:quiz_app_ii_example/options/options_modify.dart';
-import 'package:quiz_app_ii_example/services/options_service.dart';
+import 'package:quiz_app/options/options_delete.dart';
+import 'package:quiz_app/options/options_modify.dart';
+import 'package:quiz_app/services/options_service.dart';
 import 'options_api_response.dart';
 import 'options_for_listing.dart';
 

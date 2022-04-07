@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app_ii_example/data/categories.dart';
-import 'package:quiz_app_ii_example/data/user.dart';
-import 'package:quiz_app_ii_example/page/category_page.dart';
-import 'package:quiz_app_ii_example/widget/category_detail_widget.dart';
-import 'package:quiz_app_ii_example/widget/category_header_widget.dart';
 
+
+import '../data/categories.dart';
+import '../data/user.dart';
+import '../widget/category_detail_widget.dart';
+import '../widget/category_header_widget.dart';
 import '../widget/main_drawer.dart';
+import 'category_page.dart';
 
 class HomePage extends StatelessWidget {
   @override

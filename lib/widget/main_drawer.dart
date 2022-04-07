@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app_ii_example/options/options_list.dart';
-import 'package:quiz_app_ii_example/page/home_page.dart';
-import 'package:quiz_app_ii_example/notes/notes_list.dart';
-import 'package:quiz_app_ii_example/questions/question_list.dart';
-import 'package:quiz_app_ii_example/quiz/quiz_list.dart';
+import 'package:quiz_app/options/options_list.dart';
+import 'package:quiz_app/page/home_page.dart';
+import 'package:quiz_app/notes/notes_list.dart';
+import 'package:quiz_app/questions/question_list.dart';
+import 'package:quiz_app/quiz/quiz_list.dart';
 import '../category/view_category.dart';
 
 class MainDrawer extends StatelessWidget {

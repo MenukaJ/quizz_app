@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:quiz_app_ii_example/data/user.dart';
-import 'package:quiz_app_ii_example/services/category_service.dart';
+import 'package:quiz_app/data/user.dart';
+import 'package:quiz_app/services/category_service.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 import '../model/CategoryNew.dart';
