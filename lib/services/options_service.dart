@@ -36,20 +36,22 @@ class OptionsService {
   }
 
   Future<OptionsAPIResponse<bool>> createOption(OptionsManipulation item) {
-    return http.post(API + '/options/MiyuruW/save', headers: headers, body: json.encode(item.toJson())).then((data) {
+    return http.post(API + '/options/ADMIN/save', headers: headers, body: json.encode(item.toJson())).then((data) {
       if (data.statusCode == 201) {
         return OptionsAPIResponse<bool>(data: true);
+      } else if (data.statusCode == 422 || data.statusCode == 500) {
+        return OptionsAPIResponse<bool>(error: true, errorMessage: data.body.toString());
       }
-      return OptionsAPIResponse<bool>(error: true, errorMessage: 'An error occurred');
     }).catchError((_) => OptionsAPIResponse<bool>(error: true, errorMessage: 'An error occurred from API'));
   }
 
   Future<OptionsAPIResponse<bool>> updateOption(String optionsID, OptionsManipulation item) {
-    return http.put(API + '/options/MiyuruW/'+optionsID, headers: headers, body: json.encode(item.toJson())).then((data) {
+    return http.put(API + '/options/ADMIN/'+optionsID, headers: headers, body: json.encode(item.toJson())).then((data) {
       if (data.statusCode == 200) {
         return OptionsAPIResponse<bool>(data: true);
+      } else if (data.statusCode == 422 || data.statusCode == 500) {
+        return OptionsAPIResponse<bool>(error: true, errorMessage: data.body.toString());
       }
-      return OptionsAPIResponse<bool>(error: true, errorMessage: 'An error occurred');
     }).catchError((_) => OptionsAPIResponse<bool>(error: true, errorMessage: 'An error occurred from API'));
   }
 
@@ -57,8 +59,9 @@ class OptionsService {
     return http.delete(API + '/options/'+optionsID).then((data) {
       if (data.statusCode == 201) {
         return OptionsAPIResponse<bool>(data: true);
+      } else if (data.statusCode == 422 || data.statusCode == 500) {
+        return OptionsAPIResponse<bool>(error: true, errorMessage: data.body.toString());
       }
-      return OptionsAPIResponse<bool>(error: true, errorMessage: 'An error occurred');
     }).catchError((_) => OptionsAPIResponse<bool>(error: true, errorMessage: 'An error occurred from API'));
   }
 }

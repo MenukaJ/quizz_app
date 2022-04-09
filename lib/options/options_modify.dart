@@ -127,7 +127,7 @@ class _OptionsModifyState extends State<OptionsModify> {
                     });
 
                     final title = 'Done';
-                    final text = result.error ? (result.errorMessage ?? 'An error occurred') : 'Your option was updated';
+                    final text = result.error ? (result.errorMessage ?? result.errorMessage) : 'Your option was updated';
 
                     showDialog(
                         context: context,
@@ -168,7 +168,7 @@ class _OptionsModifyState extends State<OptionsModify> {
                     });
 
                     final title = 'Done';
-                    final text = result.error ? (result.errorMessage ?? 'An error occurred') : 'Your option was created';
+                    final text = result.error ? (result.errorMessage ?? result.errorMessage) : 'Your option was created';
 
                     showDialog(
                         context: context,

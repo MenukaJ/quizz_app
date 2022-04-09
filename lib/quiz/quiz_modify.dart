@@ -195,7 +195,7 @@ class _QuizModifyState extends State<QuizModify> {
                     });
 
                     final title = 'Message';
-                    final text = result.error ? (result.errorMessage ?? 'An error occurred') : 'Your quiz was updated';
+                    final text = result.error ? (result.errorMessage ?? result.errorMessage) : 'Your quiz was updated';
 
                     showDialog(
                         context: context,
@@ -235,7 +235,7 @@ class _QuizModifyState extends State<QuizModify> {
                     });
 
                     final title = 'Message';
-                    final text = result.error ? (result.errorMessage ?? 'An error occurred') : 'Your quiz was created';
+                    final text = result.error ? (result.errorMessage ?? result.errorMessage) : 'Your quiz was created';
 
                     showDialog(
                         context: context,

@@ -8,4 +8,5 @@ class QuizAPIResponse<T> {
     this.errorMessage,
     this.error = false
   });
+
 }
