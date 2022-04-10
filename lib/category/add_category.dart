@@ -37,9 +37,9 @@ class _AddCategoryState extends State<AddCategory> {
         name: name,
         status: _status,
         description: description,
-        backgroundColor: "red",
-        imageURL: "string",
-        icon: "test");
+        backgroundColor: "",
+        imageURL: "",
+        icon: "");
   }
 
   @override
@@ -171,6 +171,7 @@ class _AddCategoryState extends State<AddCategory> {
                     ),
                     DropdownButton<String>(
                       focusColor: Colors.white,
+                     // dropdownColor: Colors.deepOrange[120],
                       value: _status,
                       //elevation: 5,
                       style: TextStyle(color: Colors.white),
@@ -200,6 +201,7 @@ class _AddCategoryState extends State<AddCategory> {
                       ),
                       onChanged: (String value) {
                         setState(() {
+                          _status = value;
                           requestModel.backgroundColor = value;
                         });
                       },
@@ -218,7 +220,7 @@ class _AddCategoryState extends State<AddCategory> {
                       labels: ['ACTIVE', 'INACTIVE'],
                       //icons: [FontAwesomeIcons.ac, FontAwesomeIcons.venus],
                       activeBgColors: [
-                        [Colors.blue],
+                        [Colors.green],
                         [Colors.pink]
                       ],
                       onToggle: (index) {
@@ -239,7 +241,7 @@ class _AddCategoryState extends State<AddCategory> {
                         vertical: 20,
                         horizontal: 200,
                       ),
-                      color: Colors.green,
+                      color: Colors.blue,
                       onPressed: () {
                         if (validateAndSave()) {
                           print(requestModel.toJson());

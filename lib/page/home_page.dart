@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:quiz_app/model/CategoryNew.dart';
+import 'package:quiz_app/services/category_service.dart';
 
 import '../data/categories.dart';
 import '../data/user.dart';
+import '../model/category.dart';
 import '../widget/category_detail_widget.dart';
 import '../widget/category_header_widget.dart';
 import '../widget/main_drawer.dart';
@@ -84,35 +86,4 @@ class HomePage extends StatelessWidget {
               .toList(),
         ),
       );
-
-  /*Widget buildPopular(BuildContext context) => Column(
-        children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'Popular',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ),
-          SizedBox(height: 16),
-          Container(
-            height: 240,
-            child: ListView(
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              children: categories
-                  .map((category) => CategoryDetailWidget(
-                        category: category,
-                        onSelectedCategory: (category) {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                CategoryPage(category: category),
-                          ));
-                        },
-                      ))
-                  .toList(),
-            ),
-          )
-        ],
-      );*/
 }

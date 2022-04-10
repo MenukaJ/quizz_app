@@ -71,10 +71,10 @@ class CategoryRequestModel {
   }
 }
 
-class CategoryListResponse<T> {
+/*class CategoryListResponse<T> {
   T data;
   bool error;
   String errorMessage;
 
   CategoryListResponse({this.data, this.errorMessage, this.error = false});
-}
+}*/

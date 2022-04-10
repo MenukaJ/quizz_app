@@ -16,8 +16,8 @@ class Category {
     @required this.imageUrl,
     @required this.questions,
     @required this.categoryName,
-    this.description = '',
-    this.backgroundColor = Colors.orange,
+    this.description,
+    this.backgroundColor,
     this.icon = FontAwesomeIcons.question,
   });
 }

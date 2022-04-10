@@ -23,11 +23,11 @@ class _CategoryListState extends State<CategoryList> {
 
   @override
   void initState() {
-    _fetchNotes();
+    _fetchCategory();
     super.initState();
   }
 
-  _fetchNotes() async {
+  _fetchCategory() async {
     setState(() {
       _isLoading = true;
     });
@@ -59,7 +59,7 @@ class _CategoryListState extends State<CategoryList> {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (_) => AddCategory()))
               .then((_) {
-            _fetchNotes();
+            _fetchCategory();
           });
         },
         child: Icon(Icons.add),

@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quiz_app/data/questions.dart';
+import 'package:quiz_app/model/CategoryNew.dart';
 import 'package:quiz_app/model/category.dart';
 
-final categories = <Category>[
-  Category(
+import '../services/category_service.dart';
+/*CategoryService categoryService = new CategoryService();
+List<Category> _apiResponse;
+_fetchData() async {
+ _apiResponse = await categoryService.getAllCategoryNew();
+}
+
+List<Category> getCategory() {
+ return _apiResponse;
+}*/
+ final categories = <Category>[  Category(
     questions: questions,
     categoryName: 'Physics',
     imageUrl: 'assets/physics.png',

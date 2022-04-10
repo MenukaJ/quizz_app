@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:quiz_app/category/category_api_response.dart';
 import 'package:quiz_app/category/category_for_listing.dart';
@@ -5,6 +8,7 @@ import 'dart:convert';
 
 import '../model/CategoryNew.dart';
 import '../model/Responce.dart';
+import '../model/category.dart';
 
 class CategoryService {
   static const API = 'https://word-quiz-app-backend.herokuapp.com/category/';
@@ -20,7 +24,6 @@ class CategoryService {
     );
     print(jsonDecode(responce.body));
     if (responce.statusCode == 201 ||
-        responce.statusCode == 401 ||
         responce.statusCode == 422) {
       return Response.fromJson(jsonDecode(responce.body));
     } else {
@@ -34,7 +37,6 @@ class CategoryService {
     print(response);
     if (response.statusCode == 200) {
       final jsonData = json.decode(response.body);
-      //final Cat = <CategoryNew>[];
       List<CategoryNew> categoies = [];
       for (var item in jsonData) {
         categoies.add(CategoryNew.fromJson(item));
@@ -91,5 +93,52 @@ class CategoryService {
       return CategoryAPIResponse<List<CategoryForListing>>(error: true, errorMessage: 'An error occurred');
     }).catchError((_) => CategoryAPIResponse<List<CategoryForListing>>(error: true, errorMessage: 'An error occurred from API'));
   }
+
+  /*  Future<List<Category>> getAllCategoryNew() async {
+    print(API + 'all');
+    final response = await http.get(Uri.parse(API + 'all'));
+    print(response);
+    if (response.statusCode == 200) {
+      final jsonData = json.decode(response.body);
+      //final Cat = <CategoryNew>[];
+      //List<CategoryNew>  = [];
+      final categories = <Category>[];
+      for (var item in jsonData) {
+        CategoryNew categoryNew = (CategoryNew.fromJson(item));
+        final cat =  Category(
+          questions: null,
+          categoryName: categoryNew.name,
+          imageUrl: categoryNew.imageUrl,
+          backgroundColor: _getBackgroundColor(categoryNew.backgroundColor),
+          icon: FontAwesomeIcons.rocket,
+          description: categoryNew.description,
+        );
+        categories.add(cat);
+      }
+      print(categories);
+      return categories;
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load Categories');
+    }
+  }*/
+
+/*  Color _getBackgroundColor(String color) {
+    if(color == 'Red')
+      return Colors.red;
+    else if(color == 'Green')
+      return Colors.green;
+    else if(color == 'Yellow')
+      return Colors.yellow;
+    else if(color == 'Blue')
+      return Colors.blue;
+    else if(color == 'Orange')
+      return Colors.orange;
+    else if(color == 'Purple')
+      return Colors.purple;
+    else
+      return Colors.white;
+  }*/
 }
 

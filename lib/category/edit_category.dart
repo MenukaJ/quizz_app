@@ -26,7 +26,8 @@ class EditCategory extends StatefulWidget {
 
 class _EditCategoryState extends State<EditCategory> {
   final scffoldKey = GlobalKey<ScaffoldState>();
-  final CategoryNew categoryNew;
+  //TextEditingController _controller;
+  CategoryNew categoryNew;
   GlobalKey<FormState> globalKey = new GlobalKey<FormState>();
   CategoryRequestModel requestModel;
 
@@ -51,6 +52,7 @@ class _EditCategoryState extends State<EditCategory> {
         backgroundColor: categoryNew.backgroundColor.toString(),
         imageURL: categoryNew.imageUrl.toString(),
         icon: categoryNew.icon.toString());
+        //_controller = new TextEditingController(text: 'Initial value');
   }
 
   @override
@@ -107,9 +109,10 @@ class _EditCategoryState extends State<EditCategory> {
                     new TextFormField(
                         keyboardType: TextInputType.text,
                         onSaved: (input) => requestModel.name = input,
-                        //validator: (input) =>input.length < 1 ? "Name should be valid" : null,
+                        initialValue:  requestModel.name.toString(),
+                        validator: (input) =>input.length < 1 ? "Name should be valid" : null,
                         decoration: new InputDecoration(
-                            hintText: categoryNew.name.toString(),
+                            hintText: "name",
                             hintStyle: TextStyle(color: Colors.black),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
@@ -131,9 +134,10 @@ class _EditCategoryState extends State<EditCategory> {
                     new TextFormField(
                         keyboardType: TextInputType.text,
                         onSaved: (input) => requestModel.description = input,
-                        //validator: (input) => input.length < 1 ? "Description should be valid" : null,
+                        initialValue:  requestModel.description.toString(),
+                        validator: (input) => input.length < 1 ? "Description should be valid" : null,
                         decoration: new InputDecoration(
-                            hintText: categoryNew.description.toString(),
+                            hintText: "Description",
                             hintStyle: TextStyle(color: Colors.black),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
@@ -155,9 +159,11 @@ class _EditCategoryState extends State<EditCategory> {
                     new TextFormField(
                         keyboardType: TextInputType.text,
                         onSaved: (input) => requestModel.imageURL = input,
-                        //validator: (input) => input.length < 1? "URL should be valid": null,
+                        initialValue:  requestModel.imageURL.toString(),
+                        //controller: _controller,
+                        validator: (input) => input.length < 1? "URL should be valid": null,
                         decoration: new InputDecoration(
-                            hintText: categoryNew.imageUrl.toString(),
+                            hintText: "Image URL",
                             hintStyle: TextStyle(color: Colors.black),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
@@ -178,7 +184,7 @@ class _EditCategoryState extends State<EditCategory> {
                     ),
                     DropdownButton<String>(
                       focusColor: Colors.white,
-                      value: status,
+                      value: requestModel.backgroundColor.toString(),
                       //elevation: 5,
                       style: TextStyle(color: Colors.white),
                       iconEnabledColor: Colors.black,
@@ -210,7 +216,7 @@ class _EditCategoryState extends State<EditCategory> {
                     ),
                     ToggleSwitch(
                       minWidth: 90.0,
-                      initialLabelIndex: 1,
+                      initialLabelIndex: getStatus(requestModel.status),
                       cornerRadius: 10.0,
                       activeFgColor: Colors.white,
                       inactiveBgColor: Colors.grey,
@@ -219,7 +225,7 @@ class _EditCategoryState extends State<EditCategory> {
                       labels: ['ACTIVE', 'INACTIVE'],
                       //icons: [FontAwesomeIcons.ac, FontAwesomeIcons.venus],
                       activeBgColors: [
-                        [Colors.blue],
+                        [Colors.green],
                         [Colors.pink]
                       ],
                       onToggle: (index) {
@@ -240,7 +246,7 @@ class _EditCategoryState extends State<EditCategory> {
                         vertical: 20,
                         horizontal: 200,
                       ),
-                      color: Colors.green,
+                      color: Colors.blue,
                       onPressed: () {
                         if (validateAndSave()) {
                           print(requestModel.toJson());
@@ -287,5 +293,12 @@ class _EditCategoryState extends State<EditCategory> {
       return true;
     }
     return false;
+  }
+
+  int getStatus(String status) {
+    if (status == "ACTIVE")
+      return 0;
+    else
+      return 1;
   }
 }
