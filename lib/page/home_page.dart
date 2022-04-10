@@ -70,7 +70,7 @@ class HomePage extends StatelessWidget {
       );
 
   Widget buildCategories() => Container(
-        height: 500,
+        height: 700,
         child: GridView(
           primary: false,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

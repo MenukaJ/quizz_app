@@ -63,8 +63,8 @@ class MainDrawer extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            onTap: () => Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => new CategoryList())),
+            onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                builder: (context) => new CategoryList())),
           ),
           ListTile(
               leading: Icon(Icons.quiz_rounded),
@@ -77,8 +77,7 @@ class MainDrawer extends StatelessWidget {
                 ),
               ),
               onTap: () => Navigator.of(context).push(
-                  new MaterialPageRoute(builder: (context) => new QuizList()))
-          ),
+                  new MaterialPageRoute(builder: (context) => new QuizList()))),
           ListTile(
               leading: Icon(Icons.question_answer_rounded),
               title: Text(
@@ -89,9 +88,8 @@ class MainDrawer extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              onTap: () => Navigator.of(context).push(
-                  new MaterialPageRoute(builder: (context) => new QuestionList()))
-          ),
+              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (context) => new QuestionList()))),
           ListTile(
               leading: Icon(Icons.notes_rounded),
               title: Text(
@@ -102,9 +100,8 @@ class MainDrawer extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              onTap: () => Navigator.of(context).push(
-                  new MaterialPageRoute(builder: (context) => new OptionsList()))
-          ),
+              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (context) => new OptionsList()))),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text(

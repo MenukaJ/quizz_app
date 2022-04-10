@@ -36,4 +36,12 @@ final categories = <Category>[
     icon: FontAwesomeIcons.dna,
     description: 'Practice questions from various chapters in biology',
   ),
+  Category(
+    questions: questions,
+    imageUrl: 'assets/biology.png',
+    categoryName: 'Sinhala',
+    backgroundColor: Colors.red,
+    icon: FontAwesomeIcons.language,
+    description: 'Practice questions from various chapters in biology',
+  ),
 ];

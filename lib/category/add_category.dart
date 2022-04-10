@@ -175,8 +175,14 @@ class _AddCategoryState extends State<AddCategory> {
                       //elevation: 5,
                       style: TextStyle(color: Colors.white),
                       iconEnabledColor: Colors.black,
-                      items: <String>['Red', 'Green', 'Yellow', 'Blue']
-                          .map<DropdownMenuItem<String>>((String value) {
+                      items: <String>[
+                        'Red',
+                        'Green',
+                        'Yellow',
+                        'Blue',
+                        'Purple',
+                        'Orange'
+                      ].map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Text(
@@ -239,9 +245,8 @@ class _AddCategoryState extends State<AddCategory> {
                           print(requestModel.toJson());
                         }
                         CategoryService categoryService = new CategoryService();
-                        categoryService
-                            .save(username, requestModel)
-                            .then((responce) {
+                        categoryService.save(username, requestModel).then(
+                            (responce) {
                           //print(responce.message);
                           return Fluttertoast.showToast(
                             msg: responce.message,
@@ -252,8 +257,7 @@ class _AddCategoryState extends State<AddCategory> {
                             fontSize: 16.0,
                           );
                         }).then((value) => Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (_) => CategoryList())));
+                            MaterialPageRoute(builder: (_) => CategoryList())));
                       },
                       child: Text(
                         "Save",
