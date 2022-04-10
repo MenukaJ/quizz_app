@@ -169,7 +169,7 @@ class _QuestionModifyState extends State<QuestionModify> {
                     });
 
                     final title = 'Done';
-                    final text = result.error ? (result.errorMessage ?? 'An error occurred') : 'Your question was created';
+                    final text = result.error ? (result.errorMessage ?? result.errorMessage) : 'Your question was created';
 
                     showDialog(
                         context: context,

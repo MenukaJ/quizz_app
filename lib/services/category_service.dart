@@ -1,6 +1,6 @@
-import 'dart:io';
-
 import 'package:http/http.dart' as http;
+import 'package:quiz_app/category/category_api_response.dart';
+import 'package:quiz_app/category/category_for_listing.dart';
 import 'dart:convert';
 
 import '../model/CategoryNew.dart';
@@ -77,4 +77,19 @@ class CategoryService {
       throw Exception("Failed to Update Data");
     }
   }
+
+  Future<CategoryAPIResponse<List<CategoryForListing>>> getCategoryList() {
+    return http.get(API + '/all').then((data) {
+      if (data.statusCode == 200) {
+        final jsonData = json.decode(data.body);
+        final categories = <CategoryForListing>[];
+        for (var item in jsonData) {
+          categories.add(CategoryForListing.fromJson(item));
+        }
+        return CategoryAPIResponse<List<CategoryForListing>>(data: categories);
+      }
+      return CategoryAPIResponse<List<CategoryForListing>>(error: true, errorMessage: 'An error occurred');
+    }).catchError((_) => CategoryAPIResponse<List<CategoryForListing>>(error: true, errorMessage: 'An error occurred from API'));
+  }
 }
+

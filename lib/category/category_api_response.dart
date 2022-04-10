@@ -1,12 +1,11 @@
-class QuizAPIResponse<T> {
+class CategoryAPIResponse<T> {
   T data;
   bool error;
   String errorMessage;
 
-  QuizAPIResponse({
+  CategoryAPIResponse({
     this.data,
     this.errorMessage,
     this.error = false
   });
-
 }

@@ -36,20 +36,22 @@ class QuestionsService {
   }
 
   Future<QuestionAPIResponse<bool>> createQuestion(QuestionManipulation item) {
-    return http.post(API + '/questions/MiyuruW/save', headers: headers, body: json.encode(item.toJson())).then((data) {
+    return http.post(API + '/questions/ADMIN/save', headers: headers, body: json.encode(item.toJson())).then((data) {
       if (data.statusCode == 201) {
         return QuestionAPIResponse<bool>(data: true);
+      } else if (data.statusCode == 422 || data.statusCode == 500) {
+        return QuestionAPIResponse<bool>(error: true, errorMessage: data.body.toString());
       }
-      return QuestionAPIResponse<bool>(error: true, errorMessage: 'An error occurred');
     }).catchError((_) => QuestionAPIResponse<bool>(error: true, errorMessage: 'An error occurred from API'));
   }
 
   Future<QuestionAPIResponse<bool>> updateQuestion(String questionID, QuestionManipulation item) {
-    return http.put(API + '/questions/MiyuruW/'+questionID, headers: headers, body: json.encode(item.toJson())).then((data) {
+    return http.put(API + '/questions/ADMIN/'+questionID, headers: headers, body: json.encode(item.toJson())).then((data) {
       if (data.statusCode == 200) {
         return QuestionAPIResponse<bool>(data: true);
+      } else if (data.statusCode == 422 || data.statusCode == 500) {
+        return QuestionAPIResponse<bool>(error: true, errorMessage: data.body.toString());
       }
-      return QuestionAPIResponse<bool>(error: true, errorMessage: 'An error occurred');
     }).catchError((_) => QuestionAPIResponse<bool>(error: true, errorMessage: 'An error occurred from API'));
   }
 
@@ -57,8 +59,9 @@ class QuestionsService {
     return http.delete(API + '/questions/'+questionID).then((data) {
       if (data.statusCode == 201) {
         return QuestionAPIResponse<bool>(data: true);
+      } else if (data.statusCode == 422 || data.statusCode == 500) {
+        return QuestionAPIResponse<bool>(error: true, errorMessage: data.body.toString());
       }
-      return QuestionAPIResponse<bool>(error: true, errorMessage: 'An error occurred');
     }).catchError((_) => QuestionAPIResponse<bool>(error: true, errorMessage: 'An error occurred from API'));
   }
 }

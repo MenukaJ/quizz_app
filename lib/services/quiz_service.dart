@@ -15,11 +15,11 @@ class QuizService {
     return http.get(API + '/quiz/all').then((data) {
       if (data.statusCode == 200) {
         final jsonData = json.decode(data.body);
-        final quizes = <QuizForListing>[];
+        final quizzes = <QuizForListing>[];
         for (var item in jsonData) {
-          quizes.add(QuizForListing.fromJson(item));
+          quizzes.add(QuizForListing.fromJson(item));
         }
-        return QuizAPIResponse<List<QuizForListing>>(data: quizes);
+        return QuizAPIResponse<List<QuizForListing>>(data: quizzes);
       }
       return QuizAPIResponse<List<QuizForListing>>(error: true, errorMessage: 'An error occurred');
     }).catchError((_) => QuizAPIResponse<List<QuizForListing>>(error: true, errorMessage: 'An error occurred from API'));
@@ -36,20 +36,22 @@ class QuizService {
   }
 
   Future<QuizAPIResponse<bool>> createQuiz(QuizManipulation item) {
-    return http.post(API + '/quiz/MiyuruW/save', headers: headers, body: json.encode(item.toJson())).then((data) {
+    return http.post(API + '/quiz/ADMIN/save', headers: headers, body: json.encode(item.toJson())).then((data) {
       if (data.statusCode == 201) {
         return QuizAPIResponse<bool>(data: true);
+      } else if (data.statusCode == 422 || data.statusCode == 500) {
+        return QuizAPIResponse<bool>(error: true, errorMessage: data.body.toString());
       }
-      return QuizAPIResponse<bool>(error: true, errorMessage: 'An error occurred');
     }).catchError((_) => QuizAPIResponse<bool>(error: true, errorMessage: 'An error occurred from API'));
   }
 
   Future<QuizAPIResponse<bool>> updateQuiz(String quizID, QuizManipulation item) {
-    return http.put(API + '/quiz/MiyuruW/'+quizID, headers: headers, body: json.encode(item.toJson())).then((data) {
+    return http.put(API + '/quiz/ADMIN/'+quizID, headers: headers, body: json.encode(item.toJson())).then((data) {
       if (data.statusCode == 200) {
         return QuizAPIResponse<bool>(data: true);
+      } else if (data.statusCode == 422 || data.statusCode == 500) {
+        return QuizAPIResponse<bool>(error: true, errorMessage: data.body.toString());
       }
-      return QuizAPIResponse<bool>(error: true, errorMessage: 'An error occurred');
     }).catchError((_) => QuizAPIResponse<bool>(error: true, errorMessage: 'An error occurred from API'));
   }
 
@@ -57,8 +59,9 @@ class QuizService {
     return http.delete(API + '/quiz/'+quizID).then((data) {
       if (data.statusCode == 201) {
         return QuizAPIResponse<bool>(data: true);
+      } else if (data.statusCode == 422 || data.statusCode == 500) {
+        return QuizAPIResponse<bool>(error: true, errorMessage: data.body.toString());
       }
-      return QuizAPIResponse<bool>(error: true, errorMessage: 'An error occurred');
     }).catchError((_) => QuizAPIResponse<bool>(error: true, errorMessage: 'An error occurred from API'));
   }
 }
